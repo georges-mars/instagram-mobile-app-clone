@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const kScaffoldBgDarkColor = Color(0xFF000000);
 const kScaffoldBgLightColor = Color(0xFFFFFFFF);
+const kPersistentFooterBgColor = Color(0xFF1B1B1B);
 const kAppBarDarkColor = Color(0xFF000000); // light color for appbar and bottom navbar
 const kAppBarLightColor = Color(0xFFFFFFFF);  // dark color for appbar and bottom navbar
 const kSearchBarLightColor = Color(0xFFFFFFFF);
@@ -16,5 +17,6 @@ const kVerifiedAccountIcon = Color(0xFF0095F6);
 const kTextLightColor = Color(0xFFFFFFFF);
 const kTextDarkColor = Color(0xFF000000);
 const kTextSecondaryColor = Color(0xFF9E9E9E);
+const kTextDangerColor = Color(0xFFEE1708);
 const kTextFieldFillLightColor = Color(0x61FFFFFF);
 const kTextFieldFillDarkColor = Color(0xFF212121);
