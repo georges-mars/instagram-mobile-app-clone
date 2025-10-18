@@ -12,16 +12,15 @@ void main() async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   runApp(const InstagramAppClone());
-  
+
   // whenever your initialization is completed, remove the splash screen:
   FlutterNativeSplash.remove();
-
 }
 
 class InstagramAppClone extends StatelessWidget {
   const InstagramAppClone({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
