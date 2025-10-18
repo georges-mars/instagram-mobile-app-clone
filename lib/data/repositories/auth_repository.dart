@@ -26,12 +26,12 @@ class AuthRepository {
   Future<LoginModel> getUserCredentials(String username, String password) async {
     try {
       final userCredentials = await authService.login(username, password);
-      final authModel = await compute(_parseUserCredentials, userCredentials);
+      final responseData = await compute(_parseLoginResponseData, userCredentials);
 
       // Save tokens after successful login
       await TokenStorage.saveTokens(
-        accessToken: authModel.accessToken,
-        refreshToken: authModel.refreshToken,
+        accessToken: responseData.accessToken,
+        refreshToken: responseData.refreshToken,
       );
       return authModel;
     } catch (e) {
