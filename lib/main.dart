@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:instagram_clone/constants/colors.dart';
-import 'package:instagram_clone/routes.dart';
-import 'package:instagram_clone/screens/login/login.dart';
+import 'package:instagram_clone/presentation/routes.dart';
+
+import 'core/services/auth_service.dart';
+import 'core/theme/theme.dart';
+import 'data/repositories/auth_repository.dart';
+import 'presentation/bloc/auth_bloc/auth_bloc.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -19,38 +23,24 @@ class InstagramAppClone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        appBarTheme: AppBarTheme(
-          backgroundColor: kAppBarBackgroundColor,
-          iconTheme: IconThemeData(color: kIconColor),
-        ),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: kAppBarBackgroundColor,
-          selectedIconTheme: IconThemeData(
-            color: kIconColor,
-            size: 30.0,
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider(create: (context) => AuthRepository(AuthService()))
+      ],
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AuthBloc(context.read<AuthRepository>()),
           ),
-          unselectedIconTheme: IconThemeData(
-            color: kIconColor,
-            size: 30.0,
-          ),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          darkTheme: InstagramAppCloneAppTheme.darkTheme,
+          theme: InstagramAppCloneAppTheme.lightTheme,
+          initialRoute: '/login',
+          routes: routes,
         ),
-        iconTheme: IconThemeData(color: kIconColor),
-        scaffoldBackgroundColor: kBackgroundColor,
-        textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all<Color>(kBlueColor),
-          )
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: LoginScreen.routeName,
-      home: LoginScreen(),
-      routes: routes,
     );
   }
 }
