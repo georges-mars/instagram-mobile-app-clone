@@ -4,7 +4,8 @@ import 'package:flutter/foundation.dart';
 
 import '../../core/services/auth_service.dart';
 import '../../core/utils/token_storage.dart';
-import '../models/auth_model.dart';
+import '../models/login_model.dart';
+import '../models/signup_model.dart';
 
 class AuthRepository {
   final AuthService authService;
@@ -17,7 +18,7 @@ class AuthRepository {
     return AuthModel.fromJson(parseData);
   }
 
-  Future<AuthModel> getUserCredentials(String username, String password) async {
+  Future<LoginModel> getUserCredentials(String username, String password) async {
     try {
       final userCredentials = await authService.login(username, password);
       final authModel = await compute(_parseUserCredentials, userCredentials);

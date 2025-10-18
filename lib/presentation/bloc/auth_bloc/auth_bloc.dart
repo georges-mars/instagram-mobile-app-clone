@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../data/models/auth_model.dart';
+import '../../../data/models/login_model.dart';
 import '../../../data/repositories/auth_repository.dart';
 
 part 'auth_event.dart';

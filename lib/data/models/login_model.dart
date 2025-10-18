@@ -1,11 +1,11 @@
-class AuthModel {
+class LoginModel {
   final String accessToken, refreshToken;
 
-  AuthModel({required this.accessToken, required this.refreshToken});
+  LoginModel({required this.accessToken, required this.refreshToken});
   
 
-  factory AuthModel.fromJson(Map<String, dynamic> json) {
-    return AuthModel(
+  factory LoginModel.fromJson(Map<String, dynamic> json) {
+    return LoginModel(
       accessToken: json['access'],
       refreshToken: json['refresh'],
     );
