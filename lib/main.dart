@@ -8,8 +8,9 @@ import 'core/theme/theme.dart';
 import 'data/repositories/auth_repository.dart';
 import 'presentation/bloc/auth_bloc/auth_bloc.dart';
 
-void main() {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  final WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const InstagramAppClone());
   
