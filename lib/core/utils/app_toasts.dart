@@ -16,6 +16,8 @@ class AppToast {
       autoCloseDuration: const Duration(seconds: 3),
       alignment: Alignment.bottomCenter,
       borderRadius: BorderRadius.circular(12),
+      pauseOnHover: true,
+      showProgressBar: true,
     );
   }
 
@@ -33,6 +35,8 @@ class AppToast {
       autoCloseDuration: const Duration(seconds: 4),
       alignment: Alignment.bottomCenter,
       borderRadius: BorderRadius.circular(12),
+      pauseOnHover: true,
+      showProgressBar: true,
     );
   }
 
@@ -50,6 +54,8 @@ class AppToast {
       autoCloseDuration: const Duration(seconds: 3),
       alignment: Alignment.bottomCenter,
       borderRadius: BorderRadius.circular(12),
+      pauseOnHover: true,
+      showProgressBar: true,
     );
   }
 
@@ -67,6 +73,8 @@ class AppToast {
       autoCloseDuration: const Duration(seconds: 3),
       alignment: Alignment.bottomCenter,
       borderRadius: BorderRadius.circular(12),
+      pauseOnHover: true,
+      showProgressBar: true,
     );
   }
 }
