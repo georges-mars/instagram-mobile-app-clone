@@ -25,6 +25,7 @@ class _LoginFormState extends State<LoginForm> {
       key: formKey,
       child: Column(
         children: [
+          // 1. Username, email or mobile no. form input field
           FormInputField(
             textEditingController: usernameEmailCtrlr,
             hintText: 'Mobile no., username or email',
@@ -35,6 +36,7 @@ class _LoginFormState extends State<LoginForm> {
             },
           ),
           SizedBox(height: 8.0),
+          // 2. Password input field
           FormInputField(
             textEditingController: passwordCtrlr,
             hintText: 'Password',
@@ -45,6 +47,7 @@ class _LoginFormState extends State<LoginForm> {
             },
           ),
           SizedBox(height: 8.0),
+          // 3. Login button
           LoginButton(
             usernameCtrlr: usernameEmailCtrlr,
             passwordCtrlr: passwordCtrlr,
