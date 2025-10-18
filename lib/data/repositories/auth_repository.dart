@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '../../core/services/auth_service.dart';
-import '../../core/storage/token_storage.dart';
+import '../../core/utils/token_storage.dart';
 import '../models/auth_model.dart';
 
 class AuthRepository {
