@@ -1,0 +1,79 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../core/constants/app_assets.dart';
+import '../../../core/constants/colors.dart';
+import '../../../core/utils/app_toasts.dart';
+import '../../bloc/auth_bloc/auth_bloc.dart';
+import '../../widgets/login/login_form.dart';
+
+class LoginScreen extends StatelessWidget {
+  static String routeName = '/login';
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: BlocConsumer<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is IsAuthenticated) {
+            AppToast.showSuccess(context, title: "Welcome back!");
+            Navigator.pushNamed(context, '/homescreen');
+          } else if (state is AuthFailed) {
+            AppToast.showError(context, title: state.errorMessage.toString());
+          }
+        },
+        builder: (context, state) {
+          if (state is AuthLoading) {
+            return Center(child: CupertinoActivityIndicator());
+          }
+
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 12.0,
+            ),
+            child: ListView(
+              children: [
+                // use [SizedBox] to push the form to the center of the page
+                SizedBox(height: MediaQuery.of(context).size.height * .16),
+                Image.asset(AppAssets.kAppLogoDark, height: 70.0),
+                SizedBox(height: 24.0),
+                LoginForm(),
+              ],
+            ),
+          );
+        },
+      ),
+      persistentFooterAlignment: AlignmentDirectional.center,
+      persistentFooterButtons: [
+        Text.rich(
+          textAlign: TextAlign.center,
+          TextSpan(
+            text: "Don't have an account?  ",
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(fontSize: 14.0),
+            children: [
+              TextSpan(
+                text: 'Sign up',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: kBlueColor,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () => Navigator.pushNamed(context, '/signup'),
+              ),
+            ],
+          ),
+        ),
+      ],
+      persistentFooterDecoration: BoxDecoration(
+        color: kPersistentFooterBgColor,
+      ),
+    );
+  }
+}
