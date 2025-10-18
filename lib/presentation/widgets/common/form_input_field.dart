@@ -8,17 +8,20 @@ class FormInputField extends StatelessWidget {
     required this.textEditingController,
     required this.hintText,
     required this.labelText,
-    required this.isPasswordField,
+    required this.isPasswordField, 
+    required this.validator,
   });
 
   final String hintText, labelText;
   final bool isPasswordField;
+  final String? Function(String?) validator;
   final TextEditingController textEditingController;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: textEditingController,
+      validator: validator,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 4.0),
         hintText: hintText,
