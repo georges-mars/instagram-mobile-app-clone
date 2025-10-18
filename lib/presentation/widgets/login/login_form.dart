@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/constants/app_assets.dart';
 import '../../../core/constants/colors.dart';
+import '../../../core/utils/form_validation.dart';
 import '../../bloc/auth_bloc/auth_bloc.dart';
 import '../common/form_input_field.dart';
 
@@ -29,6 +30,9 @@ class _LoginFormState extends State<LoginForm> {
             hintText: 'Mobile no., username or email',
             labelText: 'Enter your mobile no., username or email',
             isPasswordField: false,
+            validator: (value) {
+              return FormValidation.validateEmail(value);
+            },
           ),
           SizedBox(height: 8.0),
           FormInputField(
@@ -36,6 +40,9 @@ class _LoginFormState extends State<LoginForm> {
             hintText: 'Password',
             labelText: 'Enter your password',
             isPasswordField: true,
+            validator: (value) {
+              return FormValidation.validatePassword(value, passwordCtrlr.text);
+            },
           ),
           SizedBox(height: 8.0),
           LoginButton(
