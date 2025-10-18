@@ -52,11 +52,11 @@ class _LoginFormState extends State<LoginForm> {
             usernameCtrlr: usernameEmailCtrlr,
             passwordCtrlr: passwordCtrlr,
           ),
-          // Forgot password link
+          // 4. Forgot password link
           ForgotPasswordLink(),
-          // "OR" with the dividers
+          // 5. "OR" with the dividers
           ORDivider(),
-          // Option to login with facebook
+          // 6. Option to login with facebook
           LoginWithFacebook(),
         ],
       ),
