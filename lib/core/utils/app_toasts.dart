@@ -10,7 +10,7 @@ class AppToast {
     toastification.show(
       context: context,
       type: ToastificationType.success,
-      style: ToastificationStyle.fillColored,
+      style: ToastificationStyle.flatColored,
       title: Text(title),
       description: message != null ? Text(message) : null,
       autoCloseDuration: const Duration(seconds: 3),
@@ -44,7 +44,7 @@ class AppToast {
     toastification.show(
       context: context,
       type: ToastificationType.info,
-      style: ToastificationStyle.flat,
+      style: ToastificationStyle.minimal,
       title: Text(title),
       description: message != null ? Text(message) : null,
       autoCloseDuration: const Duration(seconds: 3),
@@ -61,7 +61,7 @@ class AppToast {
     toastification.show(
       context: context,
       type: ToastificationType.warning,
-      style: ToastificationStyle.fillColored,
+      style: ToastificationStyle.flatColored,
       title: Text(title),
       description: message != null ? Text(message) : null,
       autoCloseDuration: const Duration(seconds: 3),
