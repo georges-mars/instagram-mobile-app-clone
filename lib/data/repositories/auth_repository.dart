@@ -13,7 +13,12 @@ class AuthRepository {
   AuthRepository(this.authService);
 
   // parse JSON data - seperate process from the UI thread to avoid lag
-  static AuthModel _parseUserCredentials(String responseBody) {
+  static LoginModel _parseLoginResponseData(String responseBody) {
+    final parseData = jsonDecode(responseBody);
+    return LoginModel.fromJson(parseData);
+  }
+
+  static SignupModel _parseSignupResponseData(String responseBody) {
     final parseData = jsonDecode(responseBody);
     return AuthModel.fromJson(parseData);
   }
