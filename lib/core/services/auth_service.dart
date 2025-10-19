@@ -27,6 +27,32 @@ class AuthService {
         default:
           throw Exception("Unexpected error! (${response.statusCode}).");
       }
+    } on http.ClientException {
+      throw Exception("Please check your internet connection!");
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<String> signup(String username, String email, String password) async {
+    try {
+      final response = await http.post(
+        Uri.parse(ApiEndpoints.signup),
+        body: {"username": username, "email": email, "password": password},
+      );
+
+      switch (response.statusCode) {
+        case 201:
+          return "Account created successfully!";
+        case 400:
+          throw Exception("Invalid data format provided!");
+        case 500:
+          throw Exception("Something went wrong! Please try again later.");
+        default:
+          throw Exception("Unknown error occured! Please try again");
+      }
+    } on http.ClientException {
+      throw Exception("Please check your internet connection!");
     } catch (e) {
       throw e.toString();
     }
