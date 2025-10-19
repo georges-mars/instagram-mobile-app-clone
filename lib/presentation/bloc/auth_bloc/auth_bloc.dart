@@ -21,9 +21,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // app is loading
     emit(AuthLoading());
     try {
-      final auth = await authRepository.getUserCredentials(event.username, event.password);
-      emit(IsAuthenticated(authModel: auth));
-    } catch(e) {
+      final auth = await authRepository.getUserCredentials(
+        event.username,
+        event.password,
+      );
+      emit(IsAuthenticated(loginModel: auth));
+    } catch (e) {
       emit(AuthFailed(e.toString()));
     }
   }

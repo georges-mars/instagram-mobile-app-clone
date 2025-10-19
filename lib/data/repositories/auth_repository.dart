@@ -20,7 +20,7 @@ class AuthRepository {
 
   static SignupModel _parseSignupResponseData(String responseBody) {
     final parseData = jsonDecode(responseBody);
-    return AuthModel.fromJson(parseData);
+    return SignupModel.fromJson(parseData);
   }
 
   Future<LoginModel> getUserCredentials(String username, String password) async {

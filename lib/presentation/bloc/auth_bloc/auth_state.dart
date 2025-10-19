@@ -6,9 +6,9 @@ sealed class AuthState {}
 final class AuthInitial extends AuthState {}
 
 final class IsAuthenticated extends AuthState {
-  final LoginModel authModel;
+  final LoginModel loginModel;
 
-  IsAuthenticated({required this.authModel});
+  IsAuthenticated({required this.loginModel});
 }
 
 final class AuthFailed extends AuthState {
