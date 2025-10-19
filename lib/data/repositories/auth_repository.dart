@@ -33,7 +33,16 @@ class AuthRepository {
         accessToken: responseData.accessToken,
         refreshToken: responseData.refreshToken,
       );
-      return authModel;
+      return responseData;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<SignupModel> createUserAccount(String username, String email, String password) async {
+    try {
+      final userData = await authService.signup(username, email, password);
+      return await compute(_parseSignupResponseData, userData);
     } catch (e) {
       throw e.toString();
     }

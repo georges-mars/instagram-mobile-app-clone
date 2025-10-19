@@ -27,4 +27,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthFailed(e.toString()));
     }
   }
+
+  Future<void> _createUserAccount(
+    SignupRequested event,
+    Emitter<AuthState> emit,
+  ) async {
+    // app is loading
+    emit(AuthLoading());
+
+    try {
+      final user = await authRepository.createUserAccount(
+        event.username,
+        event.email,
+        event.password,
+      );
+      emit(AccountCreated(signupModel: user));
+    } catch (e) {
+      emit(AccountCreationFailed(e.toString()));
+    }
+  }
 }

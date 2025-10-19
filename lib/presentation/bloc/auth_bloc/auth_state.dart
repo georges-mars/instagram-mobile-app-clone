@@ -17,4 +17,14 @@ final class AuthFailed extends AuthState {
   AuthFailed(this.errorMessage);
 }
 
-final class AuthLoading extends AuthState {}
+final class AccountCreated extends AuthState {
+  final SignupModel signupModel;
+
+  AccountCreated({required this.signupModel});
+}
+
+final class AccountCreationFailed extends AuthState {
+  final String errorMessage;
+
+  AccountCreationFailed(this.errorMessage);
+}
