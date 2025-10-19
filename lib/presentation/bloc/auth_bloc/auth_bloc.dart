@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../data/models/login_model.dart';
+import '../../../data/models/signup_model.dart';
 import '../../../data/repositories/auth_repository.dart';
 
 part 'auth_event.dart';
@@ -12,6 +13,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc(this.authRepository) : super(AuthInitial()) {
     on<LoginRequested>(_authenticateUser);
+    on<SignupRequested>(_createUserAccount);
   }
 
   Future<void> _authenticateUser(
