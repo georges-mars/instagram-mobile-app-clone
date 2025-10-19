@@ -21,7 +21,9 @@ class AuthService {
           // throw Exception(message);
           throw Exception('Invalid username or password!');
         case 404:
-          throw Exception("We couldn't complete your request! Please try again later.");
+          throw Exception(
+            "We couldn't complete your request! Please try again later.",
+          );
         case 500:
           throw Exception("Something went wrong! Please try again later.");
         default:
