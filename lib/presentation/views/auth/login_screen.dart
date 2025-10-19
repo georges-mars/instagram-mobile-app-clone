@@ -7,6 +7,7 @@ import '../../../core/constants/app_assets.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/utils/app_toasts.dart';
 import '../../bloc/auth_bloc/auth_bloc.dart';
+import '../../widgets/common/auth_screen_footer.dart';
 import '../../widgets/login/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -49,26 +50,11 @@ class LoginScreen extends StatelessWidget {
       ),
       persistentFooterAlignment: AlignmentDirectional.center,
       persistentFooterButtons: [
-        Text.rich(
-          textAlign: TextAlign.center,
-          TextSpan(
-            text: "Don't have an account?  ",
-            style: Theme.of(
-              context,
-            ).textTheme.bodySmall?.copyWith(fontSize: 14.0),
-            children: [
-              TextSpan(
-                text: 'Sign up',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: kBlueColor,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                ),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () => Navigator.pushNamed(context, '/signup'),
-              ),
-            ],
-          ),
+        AuthScreenFooter(
+          primaryText: "Don't have an account?",
+          redirectText: "Sign up",
+          redirectTo: TapGestureRecognizer()
+            ..onTap = () => Navigator.pushNamed(context, '/signup'),
         ),
       ],
       persistentFooterDecoration: BoxDecoration(
