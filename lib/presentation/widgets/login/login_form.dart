@@ -156,7 +156,6 @@ class LoginButton extends StatelessWidget {
           final password = passwordCtrlr.text.trim();
 
           context.read<AuthBloc>().add(LoginRequested(username, password));
-          // Navigator.pushNamed(context, '/homescreen');
         },
         child: const Text(
           "Login",
