@@ -142,10 +142,12 @@ class ForgotPasswordLink extends StatelessWidget {
 class LoginButton extends StatelessWidget {
   const LoginButton({
     super.key,
+    required this.formKey,
     required this.usernameCtrlr,
     required this.passwordCtrlr,
   });
   final TextEditingController usernameCtrlr, passwordCtrlr;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
