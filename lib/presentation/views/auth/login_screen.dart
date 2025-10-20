@@ -50,7 +50,7 @@ class LoginScreen extends StatelessWidget {
       persistentFooterAlignment: AlignmentDirectional.center,
       persistentFooterButtons: [
         AuthScreenFooter(
-          primaryText: "Don't have an account?",
+          primaryText: "Don't have an account? ",
           redirectText: "Sign up",
           redirectTo: TapGestureRecognizer()
             ..onTap = () => Navigator.pushNamed(context, '/signup'),
