@@ -45,7 +45,7 @@ class AuthService {
 
       switch (response.statusCode) {
         case 201:
-          return "Account created successfully!";
+          return response.body;
         case 400:
           throw Exception("Invalid data format provided!");
         case 409:
