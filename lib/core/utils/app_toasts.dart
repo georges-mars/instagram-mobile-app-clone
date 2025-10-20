@@ -10,7 +10,7 @@ class AppToast {
     toastification.show(
       context: context,
       type: ToastificationType.success,
-      style: ToastificationStyle.flatColored,
+      style: ToastificationStyle.fillColored,
       title: Text(title),
       description: message != null ? Text(message) : null,
       autoCloseDuration: const Duration(seconds: 5),
