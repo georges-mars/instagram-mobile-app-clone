@@ -152,11 +152,15 @@ class LoginButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: TextButton(
-        onPressed: () {
-          final username = usernameCtrlr.text.trim();
-          final password = passwordCtrlr.text.trim();
+        onPressed: () async {
+          final form = formKey.currentState;
 
-          context.read<AuthBloc>().add(LoginRequested(username, password));
+          if (form != null && form.validate()) {
+            final username = usernameCtrlr.text.trim();
+            final password = passwordCtrlr.text.trim();
+
+            context.read<AuthBloc>().add(LoginRequested(username, password));
+          }
         },
         child: const Text(
           "Login",
