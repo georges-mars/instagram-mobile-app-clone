@@ -83,8 +83,8 @@ class _SignupFormState extends State<SignupForm> {
             isPasswordField: true,
             validator: (value) {
               return FormValidation.validatePassword(
-                value,
                 _passwordController.text,
+                value
               );
             },
           ),
