@@ -20,6 +20,13 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController passwordCtrlr = TextEditingController();
 
   @override
+  void dispose() {
+    super.dispose();
+    usernameEmailCtrlr.dispose();
+    passwordCtrlr.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
