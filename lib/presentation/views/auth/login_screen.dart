@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/constants/app_assets.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/utils/app_toasts.dart';
+import '../../../core/utils/loading_indicators.dart';
 import '../../bloc/auth_bloc/auth_bloc.dart';
 import '../../widgets/common/auth_screen_footer.dart';
 import '../../widgets/login/login_form.dart';
@@ -27,7 +27,8 @@ class LoginScreen extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return Center(child: CupertinoActivityIndicator());
+            Duration(seconds: 5);
+            return Center(child: AppLoadingIndicators.loadingIndicatorLarge());
           }
 
           return Padding(
