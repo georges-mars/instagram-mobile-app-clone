@@ -15,14 +15,14 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final GlobalKey formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController usernameEmailCtrlr = TextEditingController();
   final TextEditingController passwordCtrlr = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: _formKey,
       child: Column(
         children: [
           // 1. Username, email or mobile no. form input field
@@ -49,6 +49,7 @@ class _LoginFormState extends State<LoginForm> {
           SizedBox(height: 8.0),
           // 3. Login button
           LoginButton(
+            formKey: _formKey,
             usernameCtrlr: usernameEmailCtrlr,
             passwordCtrlr: passwordCtrlr,
           ),
