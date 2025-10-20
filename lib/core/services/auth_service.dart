@@ -48,6 +48,19 @@ class AuthService {
           return "Account created successfully!";
         case 400:
           throw Exception("Invalid data format provided!");
+        case 409:
+          /* 
+          Incase of a HTTP_409_CONFLICT, check if the conflict is caused by
+          either existing email or username.
+          */
+          final data = jsonDecode(response.body);
+          if (data["username"] != null) {
+            throw Exception("Username is already taken!");
+          }
+          if (data["email"] != null) {
+            throw Exception("Email provided was used to register an account!");
+          }
+          throw Exception("Username or email taken by another user!");
         case 500:
           throw Exception("Something went wrong! Please try again later.");
         default:
