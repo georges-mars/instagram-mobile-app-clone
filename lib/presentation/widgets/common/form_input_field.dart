@@ -9,12 +9,12 @@ class FormInputField extends StatelessWidget {
     required this.hintText,
     required this.labelText,
     required this.isPasswordField, 
-    required this.validator,
+    this.validator,
   });
 
   final String hintText, labelText;
   final bool isPasswordField;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   final TextEditingController textEditingController;
 
   @override
