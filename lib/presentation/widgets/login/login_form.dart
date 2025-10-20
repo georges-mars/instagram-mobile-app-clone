@@ -49,9 +49,6 @@ class _LoginFormState extends State<LoginForm> {
             hintText: 'Password',
             labelText: 'Enter your password',
             isPasswordField: true,
-            validator: (value) {
-              return FormValidation.validatePassword(value, passwordCtrlr.text);
-            },
           ),
           SizedBox(height: 8.0),
           // 3. Login button
