@@ -27,7 +27,6 @@ class LoginScreen extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            Duration(seconds: 5);
             return Center(child: AppLoadingIndicators.loadingIndicatorLarge());
           }
 
