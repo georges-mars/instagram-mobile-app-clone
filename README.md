@@ -103,3 +103,7 @@ Don't forget to star the repo 🌟😉
 
 ## Known issues
 The app is still under development. More features will be added with time.
+
+## Source and attribution
+
+This independent repository is a copy of [morikeli/instagram-mobile-app-clone](https://github.com/morikeli/instagram-mobile-app-clone). The original Git commit history, authorship, and existing license notices have been preserved. Credit for the original project belongs to its original authors and contributors. This copy is maintained by [georges-mars](https://github.com/georges-mars).
